@@ -1,34 +1,15 @@
 import React from 'react';
 import styles from './taskList.scss';
 import { TaskItem } from './TaskItem';
-
-interface ITask {
-  id: number,
-  title: string,
-  pomodoro: number,
-  isDone: boolean,
-}
+import { useAppSelector } from '../../store/hooks/hooks';
 
 export function TaskList() {
-  const taskList: Array<ITask> = [
-    {
-      id: 1,
-      title: 'Test 1',
-      pomodoro: 2,
-      isDone: false,
-    },
-    {
-      id: 2,
-      title: 'Test 2',
-      pomodoro: 3,
-      isDone: false,
-    },
-  ];
+  const { tasks } = useAppSelector((state) => state.tasks);
 
   return (
     <ul className={`${styles.list} list-reset`}>
       {
-        taskList
+        tasks
           .map((task) => <TaskItem key={task.id} pomodoro={task.pomodoro} title={task.title}/>)
       }
     </ul>

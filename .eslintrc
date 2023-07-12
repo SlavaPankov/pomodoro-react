@@ -19,7 +19,7 @@
     "node": true
   },
   "rules": {
-    "indent": ["error", 2],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "import/prefer-default-export": 0,
     "no-tabs": 0,
     "import/no-extraneous-dependencies": 0
