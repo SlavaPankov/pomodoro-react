@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './taskList.scss';
-import { TaskItem } from './TaskItem';
+import { Task } from './TaskItem';
 import { useAppSelector } from '../../store/hooks/hooks';
 
 export function TaskList() {
@@ -10,7 +10,12 @@ export function TaskList() {
     <ul className={`${styles.list} list-reset`}>
       {
         tasks
-          .map((task) => <TaskItem key={task.id} pomodoro={task.pomodoro} title={task.title}/>)
+          .map((task) => <Task
+            key={task.id}
+            id={task.id}
+            pomodoro={task.pomodoro}
+            title={task.title}
+          />)
       }
     </ul>
   );

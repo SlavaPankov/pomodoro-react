@@ -2,34 +2,76 @@ import React, {
   ChangeEvent, FormEvent, useState,
 } from 'react';
 import styles from './taskForm.scss';
-import { useAppDispatch } from '../../store/hooks/hooks';
-import { addTask } from '../../store/tasks/tasksSlice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import { addTask, editTask } from '../../store/tasks/tasksSlice';
+import { setTaskValue } from '../../store/taskValue/taskValueSlice';
+import { toggleFormMode } from '../../store/formMode/formModeSlice';
 
 export function TaskForm() {
   const dispatch = useAppDispatch();
-  const [task, setTask] = useState('');
+  const task = useAppSelector((state) => state.taskValue.value);
+  const mode = useAppSelector((state) => state.formMode.isCreate);
+  const taskId = useAppSelector((state) => state.formMode.taskId);
+  const { tasks } = useAppSelector((state) => state.tasks);
+  const [error, setError] = useState('');
 
-  function handleChange(evt: ChangeEvent<HTMLInputElement>) {
-    setTask(evt.target.value);
+  function getTaskId(): number {
+    const lastTask = [...tasks].pop();
+
+    return lastTask ? lastTask.id + 1 : 1;
   }
 
-  function handleSubmit(evt: FormEvent) {
+  function handleChange(evt: ChangeEvent<HTMLInputElement>) {
+    setError('');
+    dispatch(setTaskValue(evt.target.value));
+  }
+
+  function validateForm() {
+    if (!task) {
+      setError('Введите название задачи');
+      return false;
+    }
+
+    return true;
+  }
+
+  function handleSubmitCreate(evt: FormEvent) {
     evt.preventDefault();
 
+    if (!validateForm()) {
+      return;
+    }
+
     dispatch(addTask({
-      id: 1,
+      id: getTaskId(),
       title: task,
       isDone: false,
       pomodoro: 1,
     }));
 
-    setTask('');
+    dispatch(setTaskValue(''));
+  }
+
+  function handleSubmitUpdate(evt: FormEvent) {
+    evt.preventDefault();
+
+    if (!validateForm() && taskId !== 0) {
+      return;
+    }
+
+    dispatch(editTask({
+      id: taskId,
+      title: task,
+    }));
+    dispatch(setTaskValue(''));
+    dispatch(toggleFormMode(0));
   }
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={styles.form} onSubmit={mode ? handleSubmitCreate : handleSubmitUpdate}>
       <input value={task} onChange={handleChange} className={styles.input} type="text" placeholder="Название задачи" />
-      <button className={styles.button}>Добавить</button>
+      {error && <span className={styles.error}>{error}</span>}
+      <button className={styles.button}>{mode ? 'Добавить' : 'Изменить'}</button>
     </form>
   );
 }

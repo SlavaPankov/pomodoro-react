@@ -30,3 +30,10 @@
 .button {
   @include btn-primary;
 }
+
+.error {
+  font-size: 12px;
+  line-height: 13px;
+  font-weight: 300;
+  color: red;
+}

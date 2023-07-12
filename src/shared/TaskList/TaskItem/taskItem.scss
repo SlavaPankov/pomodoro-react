@@ -9,19 +9,6 @@
   }
 }
 
-.button {
-  cursor: pointer;
-  margin-left: auto;
-
-  & circle {
-    transition: fill .3s ease-in-out;
-  }
-
-  &:hover circle {
-    fill: $primary;
-  }
-}
-
 .pomodoro {
   width: 25px;
   height: 25px;

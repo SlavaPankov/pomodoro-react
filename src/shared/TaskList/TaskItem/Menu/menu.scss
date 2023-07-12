@@ -1,0 +1,12 @@
+.button {
+  cursor: pointer;
+  margin-left: auto;
+
+  & circle {
+    transition: fill .3s ease-in-out;
+  }
+
+  &:hover circle {
+    fill: $primary;
+  }
+}
