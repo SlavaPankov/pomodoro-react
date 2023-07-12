@@ -3,7 +3,7 @@ import React, {
 } from 'react';
 import styles from './taskForm.scss';
 import { useAppDispatch } from '../../store/hooks/hooks';
-import { push } from '../../store/tasks/tasksSlice';
+import { addTask } from '../../store/tasks/tasksSlice';
 
 export function TaskForm() {
   const dispatch = useAppDispatch();
@@ -16,7 +16,7 @@ export function TaskForm() {
   function handleSubmit(evt: FormEvent) {
     evt.preventDefault();
 
-    dispatch(push({
+    dispatch(addTask({
       id: 1,
       title: task,
       isDone: false,
