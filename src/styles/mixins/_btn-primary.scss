@@ -1,0 +1,21 @@
+@mixin btn-primary {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: solid $gray-C4;
+  border-width: 1px 1px 5px 1px;
+  font-size: 16px;
+  line-height: 130%;
+  font-weight: 700;
+  color: $black;
+  background-color: $white;
+  text-transform: uppercase;
+  transition: border-color .3s ease-in-out;
+
+  &:hover {
+    border-color: $gray-81;
+  }
+
+  &:active {
+    border-width: 1px;
+  }
+}
