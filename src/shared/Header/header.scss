@@ -1,0 +1,49 @@
+.header {
+  box-shadow: 0 10px 63px 0 rgba(0, 0, 0, 0.07);
+}
+
+.headerContainer {
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  line-height: 100%;
+  font-weight: 300;
+  color: $secondary;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: $secondary-shade;
+
+    & .path {
+      fill: $secondary-shade;
+    }
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 400;
+  color: $secondary;
+  transition: color .3s ease-in-out;
+
+  &:hover {
+    color: $secondary-shade;
+
+    & path {
+      fill: $secondary-shade;
+    }
+  }
+}
