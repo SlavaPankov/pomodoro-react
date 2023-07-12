@@ -5,7 +5,7 @@ import { StepsList } from './StepsList';
 
 export function TextBlock() {
   return (
-    <div className={`${styles.textBlock} container`}>
+    <div className={styles.textBlock}>
       <Title />
       <StepsList />
     </div>

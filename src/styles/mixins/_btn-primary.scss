@@ -7,6 +7,7 @@
   border: 2px solid $primary;
   background-color: $primary;
   transition: border-color .3s ease-in-out, background-color .3s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     border-color: $primary-shade;

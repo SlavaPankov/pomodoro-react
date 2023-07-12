@@ -1,0 +1,44 @@
+.taskItem {
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $gray-E4;
+
+  &:first-child {
+    border-top: 1px solid $gray-E4;
+  }
+}
+
+.button {
+  cursor: pointer;
+  margin-left: auto;
+
+  & circle {
+    transition: fill .3s ease-in-out;
+  }
+
+  &:hover circle {
+    fill: $primary;
+  }
+}
+
+.pomodoro {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  border: 1px solid $gray-C4;
+  border-radius: 100%;
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 300;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 300;
+  color: $black;
+}
