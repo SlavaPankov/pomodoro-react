@@ -8,6 +8,7 @@ type TimerMode = 'focus' | 'paused' | null;
 
 export function Timer() {
   const { tasks } = useAppSelector((state) => state.tasks);
+  const settings = useAppSelector((state) => state.settings);
   const [currTask, setCurrTask] = useState<ITask>({
     id: 0,
     title: '',
@@ -45,7 +46,7 @@ export function Timer() {
   useEffect(() => {
     function switchMode() {
       const nextMode = modeRef.current === 'focus' ? 'paused' : 'focus';
-      const nextSeconds = (nextMode === 'focus' ? 10 : 5) * 60;
+      const nextSeconds = (nextMode === 'focus' ? settings.pomodoroTime : settings.shortBreakTime) * 60;
 
       setMode(nextMode);
       modeRef.current = nextMode;
@@ -54,7 +55,7 @@ export function Timer() {
       secondRef.current = nextSeconds;
     }
 
-    secondRef.current = 10 * 60;
+    secondRef.current = settings.pomodoroTime * 60;
     setSeconds(secondRef.current);
 
     const interval = setInterval(() => {
@@ -68,7 +69,7 @@ export function Timer() {
       }
 
       tick();
-    }, 1000);
+    }, 30);
 
     return () => clearInterval(interval);
   }, []);
@@ -81,7 +82,7 @@ export function Timer() {
   const minutes = Math.floor(seconds / 60);
   const secondsLeft = seconds % 60;
   let secondsLeftStr = `${secondsLeft}`;
-  if (secondsLeft < 10) {
+  if (secondsLeft < 3) {
     secondsLeftStr = `0${secondsLeft}`;
   }
 

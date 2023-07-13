@@ -5,6 +5,7 @@ import { useAppSelector } from '../../store/hooks/hooks';
 
 export function TaskList() {
   const { tasks } = useAppSelector((state) => state.tasks);
+  const settings = useAppSelector((state) => state.settings);
   const [totalTime, setTotalTime] = useState('');
 
   function getNoun(number: number, one: string, two: string, five: string) {
@@ -45,7 +46,7 @@ export function TaskList() {
       return;
     }
 
-    const tasksTime = tasks.reduce((acc, val) => acc + val.pomodoro * 25, 0);
+    const tasksTime = tasks.reduce((acc, val) => acc + val.pomodoro * settings.pomodoroTime, 0);
     setTotalTime(convertTime(tasksTime));
   }, [tasks]);
 

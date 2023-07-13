@@ -1,28 +1,26 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Header } from './Header';
-import { Content } from './Content';
-import { TextBlock } from './TextBlock';
-import { TaskForm } from './TaskForm';
-import { Timer } from './Timer';
-import { TaskList } from './TaskList/TaskList';
 import store, { persistor } from '../store/store';
+import { MainPage } from '../pages/MainPage';
+import { SettingsPage } from '../pages/SettingsPage';
 
 export function App() {
   return (
     <>
-      <Provider store={store}>
-        <PersistGate persistor={persistor} loading={null}>
-          <Header/>
-          <Content>
-            <TextBlock/>
-            <TaskForm/>
-            <TaskList/>
-            <Timer/>
-          </Content>
-        </PersistGate>
-      </Provider>
+      <BrowserRouter>
+        <Provider store={store}>
+          <PersistGate persistor={persistor} loading={null}>
+            <Header/>
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/settings" element={<SettingsPage />} />
+            </Routes>
+          </PersistGate>
+        </Provider>
+      </BrowserRouter>
     </>
   );
 }

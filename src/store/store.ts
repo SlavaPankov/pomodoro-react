@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import tasksReducer from './tasks/tasksSlice';
 import taskValueReducer from './taskValue/taskValueSlice';
 import formModeReducer from './formMode/formModeSlice';
+import settingsReducer from './settings/settingsSlice';
 
 const persistConfig = {
   key: 'root',
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
   tasks: tasksReducer,
   taskValue: taskValueReducer,
   formMode: formModeReducer,
+  settings: settingsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
