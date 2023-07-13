@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface ITask {
+export interface ITask {
   id: number,
   title: string,
   isDone: boolean,
   pomodoro: number,
+  currentPomodoro: number,
   createdAt: Date,
   completedAt: Date,
 }

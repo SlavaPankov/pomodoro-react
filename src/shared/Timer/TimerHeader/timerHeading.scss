@@ -1,0 +1,18 @@
+.heading {
+  padding: 19px 40px;
+  background-color: $gray-C4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task, .pomodoro {
+  font-size: 16px;
+  line-height: 17px;
+  font-weight: 700;
+  color: $white;
+}
+
+.pomodoro {
+  font-weight: 400;
+}
