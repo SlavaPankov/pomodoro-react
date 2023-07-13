@@ -28,11 +28,20 @@ export function TaskList() {
     const roundHours = Math.floor(hours);
     const minutes = (hours - roundHours) * 60;
     const roundMinutes = Math.round(minutes);
+    if (!roundHours) {
+      return `${roundMinutes} ${getNoun(roundMinutes, 'минута', 'минуты', 'минут')}`;
+    }
+
+    if (!roundMinutes) {
+      return `${roundHours} ${getNoun(roundHours, 'час', 'часа', 'часов')}`;
+    }
+
     return `${roundHours} ${getNoun(roundHours, 'час', 'часа', 'часов')} и ${roundMinutes} ${getNoun(roundMinutes, 'минута', 'минуты', 'минут')}`;
   }
 
   useEffect(() => {
     if (tasks.length === 0) {
+      setTotalTime('');
       return;
     }
 

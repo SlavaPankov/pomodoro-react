@@ -47,6 +47,8 @@ export function TaskForm() {
       title: task,
       isDone: false,
       pomodoro: 1,
+      createdAt: new Date(),
+      completedAt: new Date(0),
     }));
 
     dispatch(setTaskValue(''));

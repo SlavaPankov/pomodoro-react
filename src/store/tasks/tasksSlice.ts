@@ -5,6 +5,8 @@ interface ITask {
   title: string,
   isDone: boolean,
   pomodoro: number,
+  createdAt: Date,
+  completedAt: Date,
 }
 
 interface TasksState {
@@ -20,7 +22,7 @@ export const tasksSlice = createSlice({
   initialState,
   reducers: {
     addTask: (state, action: PayloadAction<ITask>) => {
-      state.tasks.push(action.payload);
+      state.tasks.unshift(action.payload);
     },
 
     editTask: (state, action: PayloadAction<{ id: number, title: string }>) => {
