@@ -8,6 +8,7 @@ import {
   setShortBreakTime,
 } from '../../store/settings/settingsSlice';
 import styles from './sliders.scss';
+import { setSeconds } from '../../store/timer/timerSlice';
 
 export function Sliders() {
   const settings = useAppSelector((state) => state.settings);
@@ -73,6 +74,7 @@ export function Sliders() {
   function handlePomodoroTimeChange(event: Event, value: number | number[]) {
     if (typeof value === 'number') {
       dispatch(setPomodoroTime(value));
+      dispatch(setSeconds(value * 60));
     }
   }
 

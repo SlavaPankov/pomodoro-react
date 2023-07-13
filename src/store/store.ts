@@ -14,6 +14,7 @@ import tasksReducer from './tasks/tasksSlice';
 import taskValueReducer from './taskValue/taskValueSlice';
 import formModeReducer from './formMode/formModeSlice';
 import settingsReducer from './settings/settingsSlice';
+import timerReducer from './timer/timerSlice';
 
 const persistConfig = {
   key: 'root',
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   taskValue: taskValueReducer,
   formMode: formModeReducer,
   settings: settingsReducer,
+  timer: timerReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -39,6 +41,7 @@ const store = configureStore({
 });
 
 export const persistor = persistStore(store);
+
 export default store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

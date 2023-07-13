@@ -6,8 +6,8 @@ export interface ITask {
   isDone: boolean,
   pomodoro: number,
   currentPomodoro: number,
-  createdAt: Date,
-  completedAt: Date,
+  createdAt: number,
+  completedAt: number,
 }
 
 interface TasksState {

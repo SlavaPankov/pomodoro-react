@@ -1,15 +1,21 @@
 @mixin btn-secondary {
-  padding: 15px 50px;
+  padding: 19px 50px;
   border: 2px solid $secondary;
   font-size: 16px;
   line-height: 17px;
   font-weight: 500;
   color: $secondary;
-  background-color: $white;
+  background-color: transparent;
   transition: color .3s ease-in-out, background-color .3s ease-in-out, border-color .3s ease-in-out;
+  cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     color: $white;
     background-color: $secondary;
+  }
+
+  &:disabled {
+    border-color: $gray-C4;
+    color: $gray-C4;
   }
 }
