@@ -22,6 +22,7 @@ html {
   min-width: 320px;
   min-height: 100%;
   font-size: 16px;
+  transition: background-color .3s ease-in-out;
 }
 
 img {
@@ -107,4 +108,21 @@ a {
 
 .css-1aznpnh-MuiSlider-root {
   color: $primary !important;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked {
+  color: $primary !important;
+}
+
+.css-5ryogn-MuiButtonBase-root-MuiSwitch-switchBase.Mui-checked+.MuiSwitch-track {
+  background-color: $primary !important;
+}
+
+.dark {
+  background-color: $bg-dark;
+
+  & .css-1eoe787-MuiSlider-markLabel,
+  & .css-yafthl-MuiSlider-markLabel {
+    color: $white !important;
+  }
 }

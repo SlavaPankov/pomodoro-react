@@ -17,5 +17,6 @@
   &:disabled {
     border-color: $gray-C4;
     color: $gray-C4;
+    cursor: default;
   }
 }

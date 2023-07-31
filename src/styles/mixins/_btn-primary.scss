@@ -9,8 +9,15 @@
   transition: border-color .3s ease-in-out, background-color .3s ease-in-out;
   cursor: pointer;
 
-  &:hover {
+  &:hover:not(:disabled) {
     border-color: $primary-shade;
     background-color: $primary-shade;
+  }
+
+  &:disabled {
+    border-color: $gray-C4;
+    color: $gray-C4;
+    background-color: transparent;
+    cursor: default;
   }
 }

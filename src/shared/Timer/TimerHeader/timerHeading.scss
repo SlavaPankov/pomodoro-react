@@ -5,6 +5,10 @@
   align-items: center;
   justify-content: space-between;
   transition: background-color .3s ease-in-out;
+
+  &_dark {
+    background-color: $invert-gray-C4;
+  }
 }
 
 .task, .pomodoro {

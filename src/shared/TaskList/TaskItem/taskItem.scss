@@ -21,6 +21,11 @@
   font-size: 16px;
   line-height: 17px;
   font-weight: 300;
+  color: $black;
+
+  &_dark {
+    color: $white;
+  }
 }
 
 .title {
@@ -28,4 +33,9 @@
   line-height: 17px;
   font-weight: 300;
   color: $black;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
 }

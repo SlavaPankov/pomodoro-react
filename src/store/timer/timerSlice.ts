@@ -1,32 +1,29 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { EMode } from '../../types/EMode';
 
 interface ITimerState {
   seconds: number,
-  mode: 'work' | 'break' | null,
-  isPaused: boolean
+  mode: EMode | null,
+  breakCount: number,
 }
 
 const initialState: ITimerState = {
   seconds: 0,
   mode: null,
-  isPaused: true,
+  breakCount: 1,
 };
 
 export const timerSlice = createSlice({
   name: 'timer slice',
   initialState,
   reducers: {
-    setIsPaused: (state, action: PayloadAction<boolean>) => {
-      state.isPaused = action.payload;
-    },
-
     setModeWork: (state) => {
-      state.mode = 'work';
+      state.mode = EMode.work;
     },
 
     setModeBreak: (state) => {
-      state.mode = 'break';
+      state.mode = EMode.break;
     },
 
     resetMode: (state) => {
@@ -36,6 +33,10 @@ export const timerSlice = createSlice({
     setSeconds: (state, action: PayloadAction<number>) => {
       state.seconds = action.payload;
     },
+
+    increaseBreakCount: (state) => {
+      state.breakCount += 1;
+    },
   },
 });
 
@@ -43,8 +44,8 @@ export const {
   setModeWork,
   setModeBreak,
   resetMode,
-  setIsPaused,
   setSeconds,
+  increaseBreakCount,
 } = timerSlice.actions;
 
 export default timerSlice.reducer;

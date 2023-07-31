@@ -1,0 +1,65 @@
+.pause {
+  position: relative;
+  padding: 25px;
+  grid-area: 4 / 5 / 5 / 9;
+  height: 100%;
+  background-color: $gray-F4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color .3s ease-in-out;
+
+  &_dark {
+    background-color: $invert-gray-F4;
+  }
+}
+
+.withData {
+  background-color: $purple-light;
+  transition: background-color .3s ease-in-out;
+
+  & path {
+    stroke: $purple-strong;
+    transition: stroke .3s ease-in-out;
+  }
+
+  &_dark {
+    background-color: $invert-purple-light;
+
+    & path {
+      stroke: $invert-peach-strong;
+    }
+  }
+}
+
+.title {
+  font-size: 24px;
+  line-height: 33px;
+  font-weight: 700;
+  color: $black;
+  margin-bottom: 20px;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
+}
+
+.value {
+  font-size: 64px;
+  line-height: 76px;
+  font-weight: 400;
+  color: $black;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+}

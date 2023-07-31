@@ -7,6 +7,7 @@ interface ISettingsState {
   longBreakTime: number,
   longBreakFrequency: number,
   isNotification: boolean,
+  themeMode: boolean,
 }
 
 const initialState: ISettingsState = {
@@ -15,6 +16,7 @@ const initialState: ISettingsState = {
   longBreakFrequency: 4,
   pomodoroTime: 25,
   shortBreakTime: 5,
+  themeMode: true,
 };
 
 export const settingSlice = createSlice({
@@ -40,6 +42,10 @@ export const settingSlice = createSlice({
     setIsNotification: (state, action: PayloadAction<boolean>) => {
       state.isNotification = action.payload;
     },
+
+    toggleMode: (state, action: PayloadAction<boolean>) => {
+      state.themeMode = action.payload;
+    },
   },
 });
 
@@ -49,6 +55,7 @@ export const {
   setLongBreakTime,
   setLongBreakFrequency,
   setIsNotification,
+  toggleMode,
 } = settingSlice.actions;
 
 export default settingSlice.reducer;

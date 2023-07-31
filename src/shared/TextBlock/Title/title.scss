@@ -4,4 +4,9 @@
   font-weight: 700;
   color: $black;
   margin-bottom: 3px;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
 }

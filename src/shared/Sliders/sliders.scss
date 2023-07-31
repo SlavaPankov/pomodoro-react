@@ -13,3 +13,12 @@
 .longBreakFr  {
   grid-area: 5 / 1 / 6 / 6;
 }
+
+.heading {
+  color: $black;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
+}

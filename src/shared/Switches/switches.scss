@@ -4,3 +4,12 @@
   align-items: center;
   gap: 15px;
 }
+
+.title {
+  color: $black;
+  transition: color .3s ease-in-out;
+
+  &_dark {
+    color: $white;
+  }
+}

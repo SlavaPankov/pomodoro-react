@@ -1,42 +1,32 @@
 import React from 'react';
 import styles from './timerControls.scss';
-import { useAppSelector } from '../../store/hooks/hooks';
 
+interface IControlButton {
+  name: string,
+  onClick: () => void,
+  disabled: boolean
+}
 interface ITimerControlsProps {
-  handleStartClick: () => void,
-  handleStopClick: () => void,
+  first: IControlButton,
+  second: IControlButton,
 }
 
-export function TimerControls({ handleStartClick, handleStopClick }: ITimerControlsProps) {
-  const isPaused = useAppSelector((state) => state.timer.isPaused);
-  const mode = useAppSelector((state) => state.timer.mode);
-
-  function getStopButtonTextContent() {
-    if (mode === 'work') {
-      return isPaused ? 'Сделано' : 'Стоп';
-    }
-
-    if (mode === null) {
-      return 'Стоп';
-    }
-
-    return 'Пропустить';
-  }
-
+export function TimerControls({ first, second }: ITimerControlsProps) {
   return (
     <div className={styles.timerControls}>
       <button
         className={styles.startButton}
-        onClick={handleStartClick}
+        disabled={first.disabled}
+        onClick={first.onClick}
       >
-        { isPaused ? 'Старт' : 'Пауза' }
+        {first.name}
       </button>
       <button
         className={styles.stopButton}
-        disabled={isPaused && !mode}
-        onClick={handleStopClick}
+        disabled={second.disabled}
+        onClick={second.onClick}
       >
-        {getStopButtonTextContent()}
+        {second.name}
       </button>
     </div>
   );

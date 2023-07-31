@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './menu.scss';
-import { MenuIcon } from '../../../Icons/MenuIcon';
+import { MenuIcon } from '../../../Icons';
 import { Dropdown } from '../../../Dropdown';
 import { MenuItemsList } from './MenuItemsList';
 

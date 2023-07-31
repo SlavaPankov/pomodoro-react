@@ -15,6 +15,7 @@ import taskValueReducer from './taskValue/taskValueSlice';
 import formModeReducer from './formMode/formModeSlice';
 import settingsReducer from './settings/settingsSlice';
 import timerReducer from './timer/timerSlice';
+import statsReducer from './stats/statsSlice';
 
 const persistConfig = {
   key: 'root',
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   formMode: formModeReducer,
   settings: settingsReducer,
   timer: timerReducer,
+  stats: statsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

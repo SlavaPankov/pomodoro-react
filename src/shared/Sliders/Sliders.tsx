@@ -1,6 +1,7 @@
 import React from 'react';
 import { Slider } from '@mui/material';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import classNames from 'classnames';
+import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
 import {
   setLongBreakFrequency,
   setLongBreakTime,
@@ -96,10 +97,15 @@ export function Sliders() {
     }
   }
 
+  const headingClassName = classNames({
+    [styles.heading]: true,
+    [styles.heading_dark]: !settings.themeMode,
+  });
+
   return (
     <>
       <div className={styles.work}>
-        <h2 className={styles.heading}>
+        <h2 className={headingClassName}>
           Продолжительность «помидора»
         </h2>
         <Slider
@@ -111,7 +117,7 @@ export function Sliders() {
         />
       </div>
       <div className={styles.shortBreak}>
-        <h2 className={styles.heading}>
+        <h2 className={headingClassName}>
           Продолжительность короткого перерыва
         </h2>
         <Slider
@@ -123,7 +129,7 @@ export function Sliders() {
         />
       </div>
       <div className={styles.longBreak}>
-        <h2 className={styles.heading}>
+        <h2 className={headingClassName}>
           Продолжительность длинного перерыва
         </h2>
         <Slider
@@ -135,7 +141,7 @@ export function Sliders() {
         />
       </div>
       <div className={styles.longBreakFr}>
-        <h2 className={styles.heading}>
+        <h2 className={headingClassName}>
           Частота длинных перерывов
         </h2>
         <Slider

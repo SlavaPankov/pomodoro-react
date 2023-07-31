@@ -1,10 +1,9 @@
 import React from 'react';
 import styles from './menuItemsList.scss';
-import { PlusIcon } from '../../../../Icons/PlusIcon';
-import { MinusIcon } from '../../../../Icons/MinusIcon';
-import { EditIcon } from '../../../../Icons/EditIcon';
-import { RemoveIcon } from '../../../../Icons/RemoveIcon';
-import { useAppDispatch, useAppSelector } from '../../../../../store/hooks/hooks';
+import {
+  PlusIcon, MinusIcon, EditIcon, RemoveIcon,
+} from '../../../../Icons';
+import { useAppDispatch, useAppSelector } from '../../../../../hooks/storeHooks';
 import {
   addPomodoro, removePomodoro, removeTask,
 } from '../../../../../store/tasks/tasksSlice';

@@ -1,0 +1,27 @@
+.bar {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  z-index: 2;
+
+  & rect,
+  & svg {
+    transition: fill .3s ease-in-out, height .3s ease-in-out;
+  }
+
+  &:hover rect {
+    fill: $secondary;
+  }
+}
+
+.gray {
+  & rect {
+    fill: $gray-C4;
+  }
+}
+
+.selected {
+  & rect {
+    fill: $secondary;
+  }
+}

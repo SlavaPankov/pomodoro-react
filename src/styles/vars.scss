@@ -5,12 +5,36 @@ $secondary: #dc3e22;
 $secondary-shade: #b7280f;
 $secondary-fade-EE: #ee735d;
 $secondary-fade-EA: #ea8979;
+$peach: #ffdda9;
+$peach-strong: #ffae35;
+$purple-light: #dfdcfe;
+$purple-strong: #9c97d7;
+$blue-light: #c5f1ff;
+$blue-strong: #7fc2d7;
 $gray-C4: #c4c4c4;
 $gray-F4: #f4f4f4;
 $gray-E4: #e4e4e4;
+$gray-DE: #dedede;
+$gray-EC: #ececec;
 $gray-99: #999;
 $white: #fff;
 $black: #333;
+
+$bg-dark: #1C1A26;
+$header-dark: #2f2a3c;
+
+$invert-gray-F4: invert($gray-F4);
+$invert-gray-C4: invert($gray-C4);
+$invert-gray-99: invert($gray-99);
+$invert-gray-DE: invert($gray-DE);
+$invert-black: invert($black);
+$invert-purple-light: invert($purple-light);
+$invert-purple-strong: invert($purple-strong);
+$invert-peach: invert($peach);
+$invert-peach-strong: invert($peach-strong);
+$invert-blue-light: invert($blue-light);
+$invert-blue-strong: invert($blue-strong);
+
 
 //settings
 $font-family: 'SFUI', sans-serif;

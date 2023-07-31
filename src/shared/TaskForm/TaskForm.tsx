@@ -1,8 +1,8 @@
 import React, {
-  ChangeEvent, FormEvent, useState,
+  ChangeEvent, FormEvent, useEffect, useState,
 } from 'react';
 import styles from './taskForm.scss';
-import { useAppDispatch, useAppSelector } from '../../store/hooks/hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/storeHooks';
 import { addTask, editTask } from '../../store/tasks/tasksSlice';
 import { setTaskValue } from '../../store/taskValue/taskValueSlice';
 import { toggleFormMode } from '../../store/formMode/formModeSlice';
@@ -11,15 +11,17 @@ export function TaskForm() {
   const dispatch = useAppDispatch();
   const task = useAppSelector((state) => state.taskValue.value);
   const mode = useAppSelector((state) => state.formMode.isCreate);
-  const taskId = useAppSelector((state) => state.formMode.taskId);
   const { tasks } = useAppSelector((state) => state.tasks);
+  const [taskId, setTaskId] = useState(1);
   const [error, setError] = useState('');
 
-  function getTaskId(): number {
-    const lastTask = [...tasks].pop();
+  useEffect(() => {
+    const lastTask = [...tasks].shift();
 
-    return lastTask ? lastTask.id + 1 : 1;
-  }
+    if (lastTask) {
+      setTaskId(lastTask.id + 1);
+    }
+  }, [tasks]);
 
   function handleChange(evt: ChangeEvent<HTMLInputElement>) {
     setError('');
@@ -43,7 +45,7 @@ export function TaskForm() {
     }
 
     dispatch(addTask({
-      id: getTaskId(),
+      id: taskId,
       title: task,
       isDone: false,
       pomodoro: 1,
