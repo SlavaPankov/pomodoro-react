@@ -1,9 +1,0 @@
-.title {
-  grid-area: 1 / 1 / 2 / 13;
-  color: $black;
-  transition: color .3s ease-in-out;
-
-  &_dark {
-    color: $white;
-  }
-}
