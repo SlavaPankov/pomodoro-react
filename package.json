@@ -9,7 +9,7 @@
     "start": "cross-env NODE_ENV=development webpack serve --mode development",
     "lint:fix": "eslint src --fix",
     "predeploy": "npm run prod",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",

@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import {
+  Route, Routes, HashRouter,
+} from 'react-router-dom';
 import { Header } from './Header';
 import { MainPage } from '../pages/MainPage';
 import { SettingsPage } from '../pages/SettingsPage';
@@ -15,13 +17,15 @@ export function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+  // <BrowserRouter>
+    <HashRouter>
       <Header/>
       <Routes>
-        <Route path="./" element={<MainPage/>}/>
-        <Route path="./settings" element={<SettingsPage/>}/>
-        <Route path="./stats" element={<StatsPage/>}/>
+        <Route path="/" element={<MainPage/>}/>
+        <Route path="/settings" element={<SettingsPage/>}/>
+        <Route path="/stats" element={<StatsPage/>}/>
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
+  // </BrowserRouter>
   );
 }

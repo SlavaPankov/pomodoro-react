@@ -18,7 +18,7 @@ export function Header() {
   return (
     <header className={headerClassName}>
       <div className={`${styles.headerContainer} container`}>
-        <Link to="./" className={styles.logo}>
+        <Link to="/" className={styles.logo}>
           <PomodoroIcon/>
           pomodoro_box
         </Link>
@@ -29,7 +29,7 @@ export function Header() {
               <StatsIcon/>
               Статистика
             </span>
-            : <Link to="./stats" className={styles.stats}>
+            : <Link to="/stats" className={styles.stats}>
               <StatsIcon/>
               Статистика
             </Link>
@@ -40,7 +40,7 @@ export function Header() {
               <SettingsIcon/>
             Настройки
             </span>
-            : <Link to="./settings" title="Настройки" className={styles.settings}>
+            : <Link to="/settings" title="Настройки" className={styles.settings}>
               <SettingsIcon/>
               Настройки
             </Link>

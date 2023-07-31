@@ -16,9 +16,6 @@ export function SwitchMode() {
     [styles.button_dark]: !isMode,
   });
 
-  // eslint-disable-next-line no-console
-  console.log(className);
-
   function handleChange() {
     dispatch(toggleMode(!isMode));
     setIsMode(!isMode);
