@@ -18,9 +18,9 @@ export function App() {
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path="/" element={<MainPage/>}/>
-        <Route path="/settings" element={<SettingsPage/>}/>
-        <Route path="/stats" element={<StatsPage/>}/>
+        <Route path="./" element={<MainPage/>}/>
+        <Route path="./settings" element={<SettingsPage/>}/>
+        <Route path="./stats" element={<StatsPage/>}/>
       </Routes>
     </BrowserRouter>
   );
